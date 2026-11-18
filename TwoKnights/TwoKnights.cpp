@@ -3,8 +3,10 @@
 using namespace std;
 
 int main() {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
     long long n;
     cin >> n;
 
@@ -13,7 +15,6 @@ int main() {
         long long attackingPairs = 4 * (k - 1) * (k - 2);
         cout << totalWays - attackingPairs << endl;
     }
-    fclose(stdin);
-    fclose(stdout);
+
     return 0;
 }

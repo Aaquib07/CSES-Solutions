@@ -6,25 +6,6 @@
 
 using namespace std;
 
-long long appleDivision(vector<long>& weights);
-
-int main() {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    int n;
-    cin >> n;
-
-    vector<long> weights(n);
-    for (int i = 0; i < n; i++) {
-        cin >> weights[i];
-    }
-
-    cout << appleDivision(weights) << endl;
-    fclose(stdin);
-    fclose(stdout);
-    return 0;
-}
-
 long long appleDivision(vector<long>& weights) {
     long long totalSum = 0;
     for (long w : weights)
@@ -50,3 +31,22 @@ long long appleDivision(vector<long>& weights) {
 
     return minDifference;
 }
+
+int main() {
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
+    int n;
+    cin >> n;
+
+    vector<long> weights(n);
+    for (int i = 0; i < n; i++) {
+        cin >> weights[i];
+    }
+
+    cout << appleDivision(weights) << endl;
+    return 0;
+}
+
+

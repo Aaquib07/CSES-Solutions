@@ -5,22 +5,6 @@
 
 using namespace std;
 
-vector<string> generateGrayCode(int& n);
-
-int main(void) {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    int n;
-    cin >> n;
-
-    vector<string> result = generateGrayCode(n);
-    for (string code : result)
-        cout << code << endl;
-    fclose(stdin);
-    fclose(stdout);
-    return 0;
-}
-
 vector<string> generateGrayCode(int& n) {
     vector<string> result;
 
@@ -31,4 +15,19 @@ vector<string> generateGrayCode(int& n) {
         result.push_back(code.substr(32 - n));
     }
     return result;
+}
+
+
+int main(void) {
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
+    int n;
+    cin >> n;
+
+    vector<string> result = generateGrayCode(n);
+    for (string code : result)
+        cout << code << endl;
+    return 0;
 }

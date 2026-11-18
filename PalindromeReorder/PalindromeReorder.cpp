@@ -5,20 +5,6 @@
 
 using namespace std;
 
-string palindromeReorder(const string& s);
-
-int main(void) {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    string s;
-    cin >> s;
-
-    cout << palindromeReorder(s) << endl;
-    fclose(stdin);
-    fclose(stdout);
-    return 0;
-}
-
 string palindromeReorder(const string& s) {
     unordered_map<char, long> hashmap;
 
@@ -53,4 +39,17 @@ string palindromeReorder(const string& s) {
     palindrome += half;
 
     return palindrome;
+}
+
+
+int main(void) {
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
+    string s;
+    cin >> s;
+
+    cout << palindromeReorder(s) << endl;
+    return 0;
 }

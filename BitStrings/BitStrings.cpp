@@ -5,8 +5,10 @@ using namespace std;
 long long MOD = 1e9 + 7;
 
 int main() {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
     int n;
     cin >> n;
 
@@ -20,7 +22,5 @@ int main() {
         n >>= 1;
     }
     cout << result;
-    fclose(stdin);
-    fclose(stdout);
     return 0;
 }

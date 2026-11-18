@@ -5,20 +5,6 @@
 
 using namespace std;
 
-void createStrings(string s);
-
-int main(void) {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
-    string s;
-    cin >> s;
-
-    createStrings(s);
-    fclose(stdin);
-    fclose(stdout);
-    return 0;
-}
-
 void createStrings(string s) {
     set<string> result;
     sort(s.begin(), s.end());
@@ -30,4 +16,16 @@ void createStrings(string s) {
     cout << result.size() << endl;
     for (const string& perm : result)
         cout << perm << endl;
+}
+
+int main(void) {
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
+    string s;
+    cin >> s;
+
+    createStrings(s);
+    return 0;
 }

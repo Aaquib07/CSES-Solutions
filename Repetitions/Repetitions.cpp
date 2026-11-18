@@ -4,8 +4,10 @@
 using namespace std;
 
 int main() {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
     long long maxReps = 0;
     long long currentReps = 1;
     string sequence;
@@ -24,7 +26,5 @@ int main() {
     }
     maxReps = max(maxReps, currentReps);
     cout << maxReps;
-    fclose(stdin);
-    fclose(stdout);
     return 0;
 }

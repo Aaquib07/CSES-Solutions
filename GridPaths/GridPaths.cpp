@@ -4,13 +4,12 @@ using namespace std;
 const int DIR_LEN = 4;
 int drow[DIR_LEN] = {-1, 0, 1, 0};
 int dcol[DIR_LEN] = {0, 1, 0, -1};
-const int PATH_LEN = 48;  // length of all possible paths
+const int PATH_LEN = 48;
 int p[PATH_LEN];
-const int GRID_SIZE = 9;  // added border to all four sides so a 7x7 becomes a 9x9
+const int GRID_SIZE = 9;
 bool onPath[GRID_SIZE][GRID_SIZE];
 
 int tryPath(int pathIdx, int curR, int curC) {
-    // Optimization 3
     if ((onPath[curR][curC - 1] && onPath[curR][curC + 1]) &&
         (!onPath[curR - 1][curC] && !onPath[curR + 1][curC]))
         return 0;
@@ -18,7 +17,7 @@ int tryPath(int pathIdx, int curR, int curC) {
         (!onPath[curR][curC - 1] && !onPath[curR][curC + 1]))
         return 0;
 
-    if (curR == 7 && curC == 1) {  // reached endpoint before visiting all
+    if (curR == 7 && curC == 1) {
         if (pathIdx == PATH_LEN)
             return 1;
         return 0;
@@ -30,14 +29,13 @@ int tryPath(int pathIdx, int curR, int curC) {
     int paths = 0;
     onPath[curR][curC] = true;
 
-    // turn already determined:
     if (p[pathIdx] < 4) {
         int nxtR = curR + drow[p[pathIdx]];
         int nxtC = curC + dcol[p[pathIdx]];
         if (!onPath[nxtR][nxtC])
             paths += tryPath(pathIdx + 1, nxtR, nxtC);
     }
-    else {  // iterate through all four possible turns
+    else {
         for (int i = 0; i < DIR_LEN; i++) {
             int nxtR = curR + drow[i];
             int nxtC = curC + dcol[i];

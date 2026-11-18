@@ -3,8 +3,10 @@
 using namespace std;
 
 int main() {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
     int n;
     cin >> n;
 
@@ -15,7 +17,6 @@ int main() {
         result += n;
     }
     cout << result;
-    fclose(stdin);
-    fclose(stdout);
+
     return 0;
 }

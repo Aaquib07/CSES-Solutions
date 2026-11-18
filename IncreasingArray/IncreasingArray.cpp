@@ -4,8 +4,10 @@
 using namespace std;
 
 int main() {
-    freopen("input.txt", "r", stdin);
-    freopen("output.txt", "w", stdout);
+    #ifndef ONLINE_JUDGE
+        freopen("input.txt", "r", stdin);
+        freopen("output.txt", "w", stdout);
+    #endif
     long long n;
     cin >> n;
     vector<long long> arr(n, 0);
@@ -25,7 +27,5 @@ int main() {
         }
         cout << minMoves;
     }
-    fclose(stdin);
-    fclose(stdout);
     return 0;
 }
